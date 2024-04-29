@@ -15,13 +15,14 @@ jobs:
     name: "Build and Release"
     strategy:
       matrix:
-        VERSIONS: [{ruby: 2.7.4, ghpages: 231}]
+        VERSIONS: [{ruby: 2.7.4, bundler: 2.4.22, ghpages: 231}]
         NODE_MAJOR_VERSION: [20]
     runs-on: ubuntu-latest
     env:
       RUBY_VERSION: ${{ matrix.VERSIONS.ruby }}
       NODE_MAJOR_VERSION: ${{ matrix.NODE_MAJOR_VERSION }}
       GITHUB_PAGES_VERSION: ${{ matrix.VERSIONS.ghpages }}
+      BUNDLER_VERSION: ${{ matrix.VERSIONS.bundler }}
 
     steps:
       - name: Lowercase repo for IMAGE_NAME

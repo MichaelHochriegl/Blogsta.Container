@@ -11,6 +11,7 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG GH_PAGES_VERSION=231
 ARG NODE_MAJOR_VERSION=20
+ARG BUNDLER_VERSION=2.4.22
 
 RUN echo "RUBY_VERSION=${RUBY_VERSION}"
 RUN echo "BUILD_DATE=${BUILD_DATE}"
@@ -48,7 +49,7 @@ RUN apt-get -y install \
     tzdata \
     dos2unix
 
-RUN gem install bundler
+RUN gem install bundler -v ${BUNDLER_VERSION}
 
 #################################################################
 #                  Installing node                              #
